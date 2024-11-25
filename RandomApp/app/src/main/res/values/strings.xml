@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RandomApp</string>
+    <string name="welcome">Welcome to my Card Matching Game</string>
+    <string name="buttonText">START MATCHING</string>
+    <string name="leaderboard">LEADERBOARD</string>
+    <string name="replay">REPLAY</string>
+    <string name="save">SAVE RESULT</string>
+    <string name="winPrefix">YOU WON </string>
+    <string name="player">Player Name</string>
+    <string name="congrats">CONGRATULATIONS</string>
+    <string name="numberOfCards">Number of Cards</string>
+    <string name="player_rank">Player Rank</string>
+    <string name="player_name">Player Name</string>
+    <string name="cards_attempted">Cards Attempted</string>
+    <string name="score">Score</string>
+</resources>

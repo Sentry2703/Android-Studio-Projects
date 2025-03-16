@@ -1,0 +1,49 @@
+# Ignore Android build files
+**/build/
+**/.gradle/
+**/.idea/
+**/local.properties
+
+# Ignore dependency caches
+**/.cxx/
+**/.externalNativeBuild/
+**/.mvn/
+**/node_modules/
+
+# Ignore test results and logs
+**/test-results/
+**/outputs/
+**/captures/
+
+# Ignore generated files
+**/generated/
+**/bin/
+**/obj/
+
+# Ignore signing information (if any)
+**/*.keystore
+**/*.jks
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore personal configuration files
+**/local.properties
+**/.settings/
+**/.project
+**/.classpath
+
+# Ignore Kotlin build files
+**/kotlin/
+**/*.kts
+
+# Ignore Jetpack Compose previews
+**/compose/preview/
+
+# Ignore gradle wrappers
+**/gradle/wrapper/gradle-wrapper.jar
+
+# Ignore log files
+**/*.log
+

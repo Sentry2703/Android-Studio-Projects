@@ -1,47 +1,41 @@
 package com.example.simpleserverapp
 
+import android.net.nsd.NsdServiceInfo
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.annotation.RequiresExtension
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
+import com.example.simpleserverapp.NetworkHelper.NetworkDiscover
 import com.example.simpleserverapp.ui.theme.SimpleServerAppTheme
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var nsdHelper: NetworkDiscover
+
+    @RequiresExtension(extension = Build.VERSION_CODES.TIRAMISU, version = 7)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        nsdHelper = NetworkDiscover(this)
+        nsdHelper.startDiscovery()
         setContent {
             SimpleServerAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Tunji",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Column {
+                    Text(text = "ServerList")
+                    Column {
+                        nsdHelper.discoveredServices.forEach { service ->
+                            Text(text = "${service.serviceName} Address: ${service.hostAddresses}")
+                        }
+                    }
+                    Text(text = "End of ServerList")
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name! What's going on?",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SimpleServerAppTheme {
-        Greeting("Android")
-    }
-}

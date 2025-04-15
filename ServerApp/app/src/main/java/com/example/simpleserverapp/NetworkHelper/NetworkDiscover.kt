@@ -12,8 +12,9 @@ class NetworkDiscover (context: Context){
     private val serviceType = "_http._tcp." //Service Type for HTTP
     val discoveredServices = mutableListOf<NsdServiceInfo>()
 
-    fun startDiscovery() {
+    fun startDiscovery(onUpdate: (List<NsdServiceInfo>) -> Unit) {
         stopDiscovery()
+        discoveredServices.clear()
 
         discoveryListener = object : NsdManager.DiscoveryListener {
             override fun onStartDiscoveryFailed(p0: String?, p1: Int) {
@@ -46,6 +47,7 @@ class NetworkDiscover (context: Context){
                     override fun onServiceResolved(resolvedService: NsdServiceInfo) {
                         Log.d("NSD", "Service resolved: $resolvedService")
                         discoveredServices.add(resolvedService)
+                        onUpdate(discoveredServices.toList())
                     }
                 })
             }
@@ -53,6 +55,7 @@ class NetworkDiscover (context: Context){
             override fun onServiceLost(p0: NsdServiceInfo) {
                 Log.d("NSD", "Service lost: $p0")
                 discoveredServices.remove(p0)
+                onUpdate(discoveredServices.toList())
             }
         }
 

@@ -1,8 +1,7 @@
-package com.example.simpleserverapp.sampledata
+package com.example.simpleserverapp.data.sample
 
 import android.net.nsd.NsdServiceInfo
 import java.net.InetAddress
-import java.net.UnknownHostException
 
 fun mockNsdServices(): List<NsdServiceInfo> {
     val mockMap = mapOf(

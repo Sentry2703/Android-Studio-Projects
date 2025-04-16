@@ -1,4 +1,4 @@
-package com.example.simpleserverapp.NetworkHelper
+package com.example.simpleserverapp.core.network
 
 import android.content.Context
 import android.net.nsd.NsdManager

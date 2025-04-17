@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SimpleServerApp</string>
+    <string name="loading">Content Loading…</string>
+    <string name="loading_failed">Content Failed to Load</string>
 </resources>

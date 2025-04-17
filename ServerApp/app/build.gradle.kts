@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.androidx.navigation)
     implementation(libs.squareup.retrofit)
     implementation(libs.squareup.retrofit.scalar)
+    implementation(libs.squareup.okhttp)
+    implementation(libs.kotlinx.serialization)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
